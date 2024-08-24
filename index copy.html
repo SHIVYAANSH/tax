@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator - Tax Calc</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+       
+        <div class="header-content">
+            <img src="sps.png" alt="SPS Logo" class="logo">
+            <div id="sps">
+                <p id="country">Country: <img src="INDIA-ICON (2).PNG" alt="India Icon" class="india-icon"></p>
+            </div>
+            <div id="HEAD1">
+                <h1>Tax Calculator</h1>
+            </div>
+        </div>
+        <p>Calculate your taxes for India</p>
+    </header>
+    <main>
+        
+        <form id="tax-form">
+            <fieldset>
+                <legend>Basic details</legend>
+            <label for="financial-year">Which Financial Year do you want to calculate taxes for?
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Select the financial year for which you want to calculate taxes."></span>
+                    <span class="tooltip">Select the financial year for which you want to calculate taxes.</span>
+                </span>
+            </label>
+            <select id="financial-year" name="financial-year">
+                <option value="2023-2024">FY(2023-2024)</option>
+                <option value="2024-2025">FY(2024-2025)</option>
+            </select>
+
+            <label for="age">Your Age
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter your age to determine the applicable tax slabs."></span>
+                    <span class="tooltip">Enter your age to determine the applicable tax slabs.</span>
+                </span>
+            </label>
+            <!-- Age Dropdown -->
+            <select id="age" name="age">
+                <option value="below60">Below 60</option>
+                <option value="60-80">60-80</option>
+                <option value="above80">Above 80</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Income Details</legend>
+
+            <label for="salary">Income from Salary
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter your total income from salary."></span>
+                    <span class="tooltip">Enter your total income from salary.</span>
+                </span>
+            </label>
+            <input type="number" id="salary" name="salary" placeholder="Salary Income">
+
+            <label for="interest">Income from Interest
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter your income from interest on savings and fixed deposits."></span>
+                    <span class="tooltip">Enter your income from interest on savings and fixed deposits.</span>
+                </span>
+            </label>
+            <input type="number" id="interest" name="interest" placeholder="Interest Income">
+
+            <label for="rental">Rental Income Received
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the rental income received from property rentals."></span>
+                    <span class="tooltip">Enter the rental income received from property rentals.</span>
+                </span>
+            </label>
+            <input type="number" id="rental" name="rental" placeholder="Rental Income">
+
+            <label for="digital-assets">Income from Digital Assets
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter income from trading or investing in digital assets like cryptocurrencies."></span>
+                    <span class="tooltip">Enter income from trading or investing in digital assets like cryptocurrencies.</span>
+                </span>
+            </label>
+            <input type="number" id="digital-assets" name="digital-assets" placeholder="Digital Assets Income">
+
+            <label for="other-income">Other Income
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter any other sources of income not listed above."></span>
+                    <span class="tooltip">Enter any other sources of income not listed above.</span>
+                </span>
+            </label>
+            <input type="number" id="other-income" name="other-income" placeholder="Other Income">
+        </fieldset>
+        <fieldset>
+            <legend>Deductions</legend>
+            <label for="exempt-allowances">Exempt Allowances
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter any exempt allowances like HRA, LTA, etc."></span>
+                    <span class="tooltip">Enter any exempt allowances like HRA, LTA, etc.</span>
+                </span>
+            </label>
+            <input type="number" id="exempt-allowances" name="exempt-allowances" placeholder="Exempt Allowances">
+
+            <label for="home-loan-self">Interest on Home Loan - Self occupied
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the interest paid on a home loan for a self-occupied property."></span>
+                    <span class="tooltip">Enter the interest paid on a home loan for a self-occupied property.</span>
+                </span>
+            </label>
+            <input type="number" id="home-loan-self" name="home-loan-self" placeholder="Self Occupied">
+
+            <label for="home-loan-let">Interest on Home Loan - Let Out
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the interest paid on a home loan for a let-out property."></span>
+                    <span class="tooltip">Enter the interest paid on a home loan for a let-out property.</span>
+                </span>
+            </label>
+            <input type="number" id="home-loan-let" name="home-loan-let" placeholder="Let Out">
+
+            <label for="deductions-80c">Basic Deductions - 80C
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the total deductions under section 80C (e.g., PF, ELSS, etc.)."></span>
+                    <span class="tooltip">Enter the total deductions under section 80C (e.g., PF, ELSS, etc.).</span>
+                </span>
+            </label>
+            <input type="number" id="deductions-80c" name="deductions-80c" placeholder="80C">
+
+            <label for="interest-80tta">Interest from Deposits - 80TTA
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the interest earned from savings accounts eligible for deduction under section 80TTA."></span>
+                    <span class="tooltip">Enter the interest earned from savings accounts eligible for deduction under section 80TTA.</span>
+                </span>
+            </label>
+            <input type="number" id="interest-80tta" name="interest-80tta" placeholder="80TTA">
+
+            <label for="medical-insurance">Medical Insurance - 80D
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the amount paid for medical insurance premiums eligible for deduction under section 80D."></span>
+                    <span class="tooltip">Enter the amount paid for medical insurance premiums eligible for deduction under section 80D.</span>
+                </span>
+            </label>
+            <input type="number" id="medical-insurance" name="medical-insurance" placeholder="80D">
+
+            <label for="donations">Donations to Charity - 80G
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the amount donated to charitable organizations eligible for deduction under section 80G."></span>
+                    <span class="tooltip">Enter the amount donated to charitable organizations eligible for deduction under section 80G.</span>
+                </span>
+            </label>
+            <input type="number" id="donations" name="donations" placeholder="80G">
+
+            <label for="educational-loan">Interest on Educational Loan - 80E
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the interest paid on educational loans eligible for deduction under section 80E."></span>
+                    <span class="tooltip">Enter the interest paid on educational loans eligible for deduction under section 80E.</span>
+                </span>
+            </label>
+            <input type="number" id="educational-loan" name="educational-loan" placeholder="80E">
+
+            <label for="housing-loan">Interest on Housing Loan - 80EEA
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the interest paid on a housing loan eligible for deduction under section 80EEA."></span>
+                    <span class="tooltip">Enter the interest paid on a housing loan eligible for deduction under section 80EEA.</span>
+                </span>
+            </label>
+            <input type="number" id="housing-loan" name="housing-loan" placeholder="80EEA">
+
+            <label for="nps">Employee's contribution to NPS - 80CCD
+                <span class="tooltip-container">
+                    <span class="qmark" data-tooltip="Enter the employee's contribution to the National Pension Scheme eligible for deduction under section 80CCD."></span>
+                    <span class="tooltip">Enter the employee's contribution to the National Pension Scheme eligible for deduction under section 80CCD.</span>
+                </span>
+            </label>
+            <input type="number" id="nps" name="nps" placeholder="80CCD">
+
+            <button type="button" id="calculate-tax" onclick="calculateTax()">Calculate Tax</button>
+            <fieldset>
+        </form>
+
+        <section id="results">
+            <h2>Tax Calculation Results</h2>
+            <p id="taxable-income"></p>
+            <p id="tax-old"></p>
+            <p id="tax-new"></p>
+            <p id="suggestion"></p> <!-- Suggestion based on calculation -->
+        </section>
+    </main>
+
+    <footer>
+      &copy; 2024 Tax Calc. All rights reserved.
+    </footer>
+
+    <script>
+        function calculateTax() {
+            // Retrieve form values
+            let ageGroup = document.getElementById("age").value;
+            let salary = parseFloat(document.getElementById("salary").value) || 0;
+            let interest = parseFloat(document.getElementById("interest").value) || 0;
+            let rental = parseFloat(document.getElementById("rental").value) || 0;
+            let digitalAssets = parseFloat(document.getElementById("digital-assets").value) || 0;
+            let otherIncome = parseFloat(document.getElementById("other-income").value) || 0;
+            let exemptAllowances = parseFloat(document.getElementById("exempt-allowances").value) || 0;
+            let homeLoanSelf = parseFloat(document.getElementById("home-loan-self").value) || 0;
+            let homeLoanLet = parseFloat(document.getElementById("home-loan-let").value) || 0;
+            let deductions80C = parseFloat(document.getElementById("deductions-80c").value) || 0;
+            let interest80TTA = parseFloat(document.getElementById("interest-80tta").value) || 0;
+            let medicalInsurance = parseFloat(document.getElementById("medical-insurance").value) || 0;
+            let donations = parseFloat(document.getElementById("donations").value) || 0;
+            let educationalLoan = parseFloat(document.getElementById("educational-loan").value) || 0;
+            let housingLoan = parseFloat(document.getElementById("housing-loan").value) || 0;
+            let nps = parseFloat(document.getElementById("nps").value) || 0;
+        
+            // Calculate taxable income
+            let totalIncome = salary + interest + rental + digitalAssets + otherIncome;
+            let deductions = deductions80C + interest80TTA + medicalInsurance + donations + educationalLoan + housingLoan + nps + exemptAllowances;
+            let taxableIncomeOld = totalIncome - deductions;
+            let taxableIncomeNew = totalIncome; // New regime doesn't allow most deductions
+        
+            // Set tax slabs based on age group
+            let taxSlabsOld, taxSlabsNew;
+            if (ageGroup === "below60") {
+                taxSlabsOld = [
+                    { limit: 250000, rate: 0 },
+                    { limit: 500000, rate: 0.05 },
+                    { limit: 1000000, rate: 0.2 },
+                    { limit: Infinity, rate: 0.3 }
+                ];
+            } else if (ageGroup === "60-80") {
+                taxSlabsOld = [
+                    { limit: 300000, rate: 0 },
+                    { limit: 500000, rate: 0.05 },
+                    { limit: 1000000, rate: 0.2 },
+                    { limit: Infinity, rate: 0.3 }
+                ];
+            } else if (ageGroup === "above80") {
+                taxSlabsOld = [
+                    { limit: 500000, rate: 0 },
+                    { limit: 1000000, rate: 0.2 },
+                    { limit: Infinity, rate: 0.3 }
+                ];
+            }
+        
+            taxSlabsNew = [
+                { limit: 250000, rate: 0 },
+                { limit: 500000, rate: 0.05 },
+                { limit: 750000, rate: 0.1 },
+                { limit: 1000000, rate: 0.15 },
+                { limit: 1250000, rate: 0.2 },
+                { limit: 1500000, rate: 0.25 },
+                { limit: Infinity, rate: 0.3 }
+            ];
+        
+            // Calculate tax for old regime
+            let taxOld = 0;
+            let previousLimit = 0;
+            for (let slab of taxSlabsOld) {
+                if (taxableIncomeOld > slab.limit) {
+                    taxOld += slab.rate * (slab.limit - previousLimit);
+                    previousLimit = slab.limit;
+                } else {
+                    taxOld += slab.rate * (taxableIncomeOld - previousLimit);
+                    break;
+                }
+            }
+        
+            // Calculate tax for new regime
+            let taxNew = 0;
+            previousLimit = 0;
+            for (let slab of taxSlabsNew) {
+                if (taxableIncomeNew > slab.limit) {
+                    taxNew += slab.rate * (slab.limit - previousLimit);
+                    previousLimit = slab.limit;
+                } else {
+                    taxNew += slab.rate * (taxableIncomeNew - previousLimit);
+                    break;
+                }
+            }
+        
+            // Suggest better tax regime
+            let suggestion;
+            if (taxOld < taxNew) {
+                suggestion = "The Old Tax Regime is more beneficial for you.";
+            } else if (taxNew < taxOld) {
+                suggestion = "The New Tax Regime is more beneficial for you.";
+            } else {
+                suggestion = "Both tax regimes offer the same tax liability.";
+            }
+        
+            // Display results
+            document.getElementById("taxable-income").textContent = `Your Taxable Income is ₹${taxableIncomeOld.toFixed(2)} (Old Regime) and ₹${taxableIncomeNew.toFixed(2)} (New Regime).`;
+            document.getElementById("tax-old").textContent = `Tax under Old Regime: ₹${taxOld.toFixed(2)}`;
+            document.getElementById("tax-new").textContent = `Tax under New Regime: ₹${taxNew.toFixed(2)}`;
+            document.getElementById("suggestion").textContent = suggestion;
+        }
+
+        
+            </script>
+</body>
+</html>
